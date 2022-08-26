@@ -1,0 +1,19 @@
+{
+  "name": "minhhhn/collectionpackage",
+  "description": "Collection package",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "minhhn",
+      "email": "nhatminh7721@gmail.com"
+    }
+  ],
+  "require": {
+  },
+  "autoload": {
+    "psr-4": {
+      "MinhHN\\Collection\\": "src/"
+    }
+  }
+}
