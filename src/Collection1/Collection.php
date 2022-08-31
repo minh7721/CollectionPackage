@@ -6,6 +6,7 @@ use MinhHN\Collection\Collection\ArrayIterator;
 use Countable;
 use IteratorAggregate;
 use JsonSerializable;
+use stdClass;
 use Traversable;
 
 class Collection implements JsonSerializable, ArrayAccess, Countable, IteratorAggregate, Jsonable, Arrayable
@@ -16,6 +17,42 @@ class Collection implements JsonSerializable, ArrayAccess, Countable, IteratorAg
     {
         $this->data = $this->arrayfy($data);
     }
+
+    public function arrToObj(){
+        $myobject = $this->arrayToObject($this->data);
+        $data = (array) $myobject;
+        $this->data = $data;
+        return $this;
+    }
+
+    function array_to_obj($array, &$obj)
+    {
+        foreach ($array as $key => $value)
+        {
+            if (is_array($value))
+            {
+                $obj->$key = new stdClass();
+                $this->array_to_obj($value, $obj->$key);
+            }
+            else
+            {
+                $obj->$key = $value;
+            }
+        }
+        return $obj;
+    }
+
+    function arrayToObject($array)
+    {
+        $object= new stdClass();
+        return $this->array_to_obj($array, $object);
+    }
+
+
+
+
+
+
 
     /**
      * Applies map over the Collection. Returns a new one.
@@ -70,6 +107,7 @@ class Collection implements JsonSerializable, ArrayAccess, Countable, IteratorAg
      */
     public function all()
     {
+        $this->arrToObj();
         return $this->data;
     }
 

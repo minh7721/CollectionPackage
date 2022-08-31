@@ -11,7 +11,6 @@ class Data extends Collection
 
     }
 
-
     /**
      * @return array
      */
