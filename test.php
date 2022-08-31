@@ -1,11 +1,7 @@
 <?php
 require_once __DIR__."/vendor/autoload.php";
 
-use MinhHN\Collection\Book;
-use MinhHN\Collection\User;
-
-$Book = new Book();
-$User = new User();
+use MinhHN\Collection\Collection\Collection;
 
 $array = [
     ['name' => 'Nguyễn Gia Hào','age' => '23', 'email' => 'giahao9899@gmail.com', 'phone' => '01283180231'],
@@ -17,27 +13,8 @@ $array = [
     ['name' => 'Chiến','age' => '22', 'email' => 'chien@gmail.com', 'phone' => '34230429834'],
 ];
 
-$User->setData($array);
-$user = $User->arrToObj();
+$arr = [1,2,3,4,5,6];
 
-//print_r($user->dataValue());
-//print_r($user->all());
-//foreach ($user->dataValue() as $value){
-//    echo $value->age."\n";
-//}
-//
-//print_r($User->sortBy('desc'));
-//
-//print_r($User->first());
-//
-//print_r($User->last());
-//
-//echo $user->avg('age');
-//
-//print_r($user->filter('name', '<', '20'));
-//
-//public function myFunction(){
-//
-//}
-//
-//print_r($user->pluck('name'));
+$a =  new Collection($arr);
+
+print_r($a->avg());

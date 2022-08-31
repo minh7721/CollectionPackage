@@ -2,6 +2,7 @@
   "name": "minhhhn/collectionpackage",
   "description": "Collection package",
   "minimum-stability": "stable",
+  "type": "php",
   "license": "proprietary",
   "authors": [
     {
@@ -10,7 +11,13 @@
     }
   ],
   "require": {
-    "ext-pdo": "*"
+    "ext-pdo": "*",
+    "ext-mysql_xdevapi": "*",
+    "ext-json": "*",
+    "vlucas/phpdotenv": "^5.4",
+    "smarty/smarty": "^4.1",
+    "twig/twig": "^3.0",
+    "spatie/ignition": "^1.2"
   },
   "autoload": {
     "psr-4": {

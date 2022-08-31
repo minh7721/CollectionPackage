@@ -77,11 +77,45 @@ class Data
         return $this->data[$countData];
     }
 
-    public function filter(){
-
+    public function filter($key, $sign, $value){
+        $itmes = [];
+        if(isset($this->data[0]->$key)){
+            $n = count($this->data);
+            if($sign == "<"){
+                foreach ($this->data as $data){
+                    if($data->$key < $value){
+                        array_push($itmes, $data);
+                    }
+                }
+            }
+            if($sign == ">"){
+                foreach ($this->data as $data){
+                    if($data->$key > $value){
+                        array_push($itmes, $data);
+                    }
+                }
+            }
+            if($sign == "="){
+                foreach ($this->data as $data){
+                    if($data->$key == $value){
+                        array_push($itmes, $data);
+                    }
+                }
+            }
+            return $itmes;
+        }
+        else{
+            throw new Exception("Khong tim thay $key");
+        }
     }
-    public function map(){
 
+    public function map(callable $callback){
+        $items = $this->all();
+        $keys = array_keys($items);
+
+        $items = array_map($callback, $items, $keys);
+//        return $items;
+        return new static(array_combine($keys, $items));
     }
 
     public function avg($value){
@@ -100,11 +134,21 @@ class Data
             }
     }
 
-    public function pluck($data){
-
+    public function pluck($key){
+        $items = [];
+        if(isset($this->data[0]->$key)){
+            foreach ($this->data as $data){
+                $items[] = $data->$key;
+            }
+            return $items;
+        }
+        else{
+            throw new Exception("Khong tim thay $key trong du lieu");
+        }
     }
 
     public function sortBy($key){
+        $key = strtolower($key);
         if($key == "asc"){
             for($i = 0; $i < count($this->data); $i++){
                 for ($j = $i; $j< count($this->data); $j++){
@@ -127,9 +171,9 @@ class Data
                 }
             }
         }
-
+        else{
+            echo "Gia tri nhap vao chi co the la asc(tang dan) va desc(giam gian";
+        }
         return $this->data;
     }
-
-
 }
