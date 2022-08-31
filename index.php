@@ -20,24 +20,19 @@ $array = [
 $User->setData($array);
 $user = $User->arrToObj();
 
-//print_r($user->dataValue());
 //print_r($user->all());
 //foreach ($user->dataValue() as $value){
-//    echo $value->age."\n";
+//    echo $value->name."\n";
 //}
-//
+
 //print_r($User->sortBy('desc'));
-//
+
 //print_r($User->first());
-//
+
 //print_r($User->last());
-//
+
 //echo $user->avg('age');
 //
-//print_r($user->filter('name', '<', '20'));
+//print_r($user->filter('age', '<', '20'));
 //
-//public function myFunction(){
-//
-//}
-//
-//print_r($user->pluck('name'));
+print_r($user->pluck('name'));
