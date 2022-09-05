@@ -39,5 +39,5 @@ public function myFunction(){
 
 }
 
-print_r($user->pluck('name'));git
+print_r($user->pluck('name'));
 ```
