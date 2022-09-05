@@ -48,8 +48,6 @@ class Collection implements JsonSerializable, ArrayAccess, Countable, IteratorAg
         return $this->array_to_obj($array, $object);
     }
 
-
-
     /**
      * Applies map over the Collection. Returns a new one.
      *
