@@ -2,7 +2,7 @@
 namespace MinhHN\Collection\Collection1;
 
 use ArrayAccess;
-use MinhHN\Collection\Collection\ArrayIterator;
+use ArrayIterator;
 use Countable;
 use IteratorAggregate;
 use JsonSerializable;

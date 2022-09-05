@@ -2,7 +2,7 @@
   "name": "minhhhn/collectionpackage",
   "description": "Collection package",
   "minimum-stability": "stable",
-  "type": "php",
+  "type": "library",
   "license": "proprietary",
   "authors": [
     {
