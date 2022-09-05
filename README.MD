@@ -3,7 +3,7 @@
 ## Installation
 
 ```sh
-composer require minhhhn/collectionpackage
+composer require minhhhn/collectionpackage:dev-main
 ```
 
 ## Basic Usage
