@@ -3,7 +3,7 @@
   "description": "Collection package",
   "minimum-stability": "stable",
   "type": "library",
-  "license": "proprietary",
+  "license": "MIT",
   "authors": [
     {
       "name": "minhhn",
