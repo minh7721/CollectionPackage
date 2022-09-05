@@ -50,10 +50,6 @@ class Collection implements JsonSerializable, ArrayAccess, Countable, IteratorAg
 
 
 
-
-
-
-
     /**
      * Applies map over the Collection. Returns a new one.
      *
