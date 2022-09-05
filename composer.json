@@ -13,7 +13,6 @@
   "require": {
     "php": ">=7.4",
     "ext-pdo": "*",
-    "ext-mysql_xdevapi": "*",
     "ext-json": "*",
     "vlucas/phpdotenv": "^5.4",
     "smarty/smarty": "^4.1",
