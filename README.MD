@@ -18,26 +18,25 @@ $array = [
     ['name' => 'Đăng','age' => '20', 'email' => 'dang@gmail.com', 'phone' => '10230121'],
     ['name' => 'Chiến','age' => '22', 'email' => 'chien@gmail.com', 'phone' => '34230429834'],
 ];
-print_r($user->dataValue());
+
+$User->setData($array);
+$user = $User->arrToObj();
+
 print_r($user->all());
 foreach ($user->dataValue() as $value){
-    echo $value->age."\n";
+    echo $value->name."\n";
 }
 
 print_r($User->sortBy('desc'));
 
-$user->dataValue()[0]->name;
 print_r($User->first());
 
 print_r($User->last());
 
 echo $user->avg('age');
 
-print_r($user->filter('name', '<', '20'));
-
-public function myFunction(){
-
-}
+print_r($user->filter('age', '<', '20'));
 
 print_r($user->pluck('name'));
+
 ```
