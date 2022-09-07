@@ -40,3 +40,7 @@ print_r($user->filter('age', '<', '20'));
 print_r($user->pluck('name'));
 
 ```
+
+## Class Diagram
+
+![img.png](img/img.png)
