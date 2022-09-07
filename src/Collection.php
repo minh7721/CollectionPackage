@@ -2,6 +2,7 @@
 
 namespace MinhHN\Collection;
 
+use MinhHN\Collection\Collection1\CollectionHelper;
 use mysql_xdevapi\Exception;
 
 class Collection
@@ -65,9 +66,6 @@ class Collection
         return new static(CollectionHelper::map($this->data, $callback));
     }
 
-
-
-
     public function avg($value){
         if(isset($this->data[0]->$value) && is_numeric($this->data[0]->$value)){
             $n = count($this->data);
@@ -122,7 +120,7 @@ class Collection
             }
         }
         else{
-            echo "Gia tri nhap vao chi co the la asc(tang dan) va desc(giam gian";
+            throw new Exception("Gia tri nhap vao chi co the la asc(tang dan) va desc(giam dan)");
         }
         return $this->data;
     }

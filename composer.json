@@ -1,7 +1,6 @@
 {
   "name": "minhhn/collectionpackage",
   "description": "Collection package",
-  "minimum-stability": "dev",
   "type": "library",
   "license": "MIT",
   "authors": [
