@@ -25,6 +25,5 @@
     "psr-4": {
       "MinhHN\\Collection\\": "src/"
     }
-  },
-  "prefer-stable": true
+  }
 }
