@@ -1,8 +1,7 @@
 <?php
 require_once __DIR__."/vendor/autoload.php";
 
-use MinhHN\Collection\Collection1\Collection;
-use MinhHN\Tests\CollectionTest;
+use MinhHN\Collection\Data1;
 $array = [
     ['name' => 'Nguyễn Gia Hào','age' => '23', 'email' => 'giahao9899@gmail.com', 'phone' => '01283180231'],
     ['name' => 'VNP Group','age' => '15', 'email' => 'vnp@gmail.com', 'phone' => '01283180231'],
@@ -13,13 +12,27 @@ $array = [
     ['name' => 'Chiến','age' => '22', 'email' => 'chien@gmail.com', 'phone' => '34230429834'],
 ];
 
-$collection = new Collection($array);
-//$newCollection = $collection->map(function ($item) {
-//    return $item * 2;
-//});
+$arr = [1,2,3,4,6,3,2,1];
 
-//foreach ($collection->all() as $item) {
-//    echo $item->name."\n";
-//}
-
+$data = new Data1();
+$collection = $data::collection($array);
 //print_r($collection->all());
+//echo "\n\n";
+//print_r($collection->avg('age'));
+//echo "\n\n";
+//print_r($collection->pluck('name'));
+//echo "\n\n";
+//print_r($collection->sortBy('age','asc'));
+
+//echo "Tuoi ban dau: ";
+//foreach ($collection->all() as $dt){
+//    print_r($dt->age);
+//    echo " ";
+//}
+//
+//echo "\n";
+//echo "Tuoi luc sau: ";
+//$collection->filter(function ($item){
+//     print_r(($item->age)*2);
+//     echo " ";
+//});

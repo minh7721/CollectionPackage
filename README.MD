@@ -19,28 +19,29 @@ $array = [
     ['name' => 'Chiến','age' => '22', 'email' => 'chien@gmail.com', 'phone' => '34230429834'],
 ];
 
-$User->setData($array);
-$user = $User->arrToObj();
+$arr = [1,2,3,4,6,3,2,1];
 
-print_r($user->all());
-foreach ($user->dataValue() as $value){
-    echo $value->name."\n";
+$data = new Data1();
+$collection = $data::collection($array);
+print_r($collection->all());
+echo "\n\n";
+print_r($collection->avg('age'));
+echo "\n\n";
+print_r($collection->pluck('name'));
+echo "\n\n";
+print_r($collection->sortBy('age','asc'));
+
+echo "Tuoi ban dau: ";
+foreach ($collection->all() as $dt){
+    print_r($dt->age);
+    echo " ";
 }
 
-print_r($User->sortBy('desc'));
-
-print_r($User->first());
-
-print_r($User->last());
-
-echo $user->avg('age');
-
-print_r($user->filter('age', '<', '20'));
-
-print_r($user->pluck('name'));
+echo "\n";
+echo "Tuoi luc sau: ";
+$collection->filter(function ($item){
+     print_r(($item->age)*2);
+     echo " ";
+});
 
 ```
-
-## Class Diagram
-
-![img.png](img/img.png)

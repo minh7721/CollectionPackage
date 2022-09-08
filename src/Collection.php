@@ -2,8 +2,7 @@
 
 namespace MinhHN\Collection;
 
-use MinhHN\Collection\Collection1\CollectionHelper;
-use mysql_xdevapi\Exception;
+use Exception;
 
 class Collection
 {
@@ -12,14 +11,16 @@ class Collection
     }
 
     public function first(){
-        return $this->data[0];
+        return reset($this->data);
     }
 
     public function last(){
-        $countData = count($this->data) - 1;
-        return $this->data[$countData];
+        return end($this->data);
     }
 
+    /**
+     * @throws Exception
+     */
     public function filter($key, $sign, $value){
         $itmes = [];
         if(isset($this->data[0]->$key)){
@@ -27,21 +28,21 @@ class Collection
             if($sign == "<"){
                 foreach ($this->data as $data){
                     if($data->$key < $value){
-                        array_push($itmes, $data);
+                        $itmes[] = $data;
                     }
                 }
             }
             if($sign == ">"){
                 foreach ($this->data as $data){
                     if($data->$key > $value){
-                        array_push($itmes, $data);
+                        $itmes[] = $data;
                     }
                 }
             }
             if($sign == "="){
                 foreach ($this->data as $data){
                     if($data->$key == $value){
-                        array_push($itmes, $data);
+                        $itmes[] = $data;
                     }
                 }
             }
@@ -61,11 +62,14 @@ class Collection
 //        return new static(array_combine($keys, $items));
 //    }
 
-    public function map($callback)
-    {
-        return new static(CollectionHelper::map($this->data, $callback));
-    }
+//    public function map(\Closure $callback)
+//    {
+//        return $this->createFrom(array_map($callback, $this->elements));
+//    }
 
+    /**
+     * @throws Exception
+     */
     public function avg($value){
         if(isset($this->data[0]->$value) && is_numeric($this->data[0]->$value)){
             $n = count($this->data);
@@ -95,6 +99,9 @@ class Collection
         }
     }
 
+    /**
+     * @throws Exception
+     */
     public function sortBy($key){
         $key = strtolower($key);
         if($key == "asc"){

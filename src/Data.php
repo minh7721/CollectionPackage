@@ -4,7 +4,7 @@ use stdClass;
 
 class Data extends Collection
 {
-    protected $data = [];
+    public array $data = [];
 
     public function __construct()
     {

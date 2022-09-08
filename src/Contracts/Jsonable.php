@@ -1,5 +1,5 @@
 <?php
-namespace MinhHN\Collection\Collection1;
+namespace MinhHN\Collection\Contracts;
 
 interface Jsonable
 {

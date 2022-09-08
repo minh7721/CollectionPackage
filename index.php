@@ -1,10 +1,8 @@
 <?php
 require_once __DIR__."/vendor/autoload.php";
 
-use MinhHN\Collection\Book;
 use MinhHN\Collection\User;
 
-$Book = new Book();
 $User = new User();
 
 $array = [
@@ -20,19 +18,19 @@ $array = [
 $User->setData($array);
 $user = $User->arrToObj();
 
-print_r($user->all());
-foreach ($user->dataValue() as $value){
-    echo $value->name."\n";
-}
-
+//print_r($user->all());
+//foreach ($user->dataValue() as $value){
+//    echo $value->name."\n";
+//}
+//
 print_r($User->sortBy('desc'));
-
-print_r($User->first());
-
-print_r($User->last());
-
-echo $user->avg('age');
-
-print_r($user->filter('age', '<', '20'));
-
-print_r($user->pluck('name'));
+//
+//print_r($User->first());
+////
+//print_r($User->last());
+//
+//echo $user->avg('age');
+//
+//print_r($user->filter('age', '<', '20'));
+//
+//print_r($user->pluck('name'));
