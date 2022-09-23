@@ -16,7 +16,8 @@
     "vlucas/phpdotenv": "^5.4",
     "smarty/smarty": "^4.1",
     "twig/twig": "^3.0",
-    "spatie/ignition": "^1.2"
+    "spatie/ignition": "^1.2",
+    "ext-pthreads": "*"
   },
   "require-dev": {
     "phpunit/phpunit": ">=7.0-dev"

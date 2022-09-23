@@ -28,7 +28,6 @@ class Data1 implements Arrayable, Jsonable
                 return static::from($item);
             }
         }, $items);
-
         return new Collection1($items);
     }
 

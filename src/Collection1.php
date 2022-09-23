@@ -47,13 +47,11 @@ class Collection1 implements CollectionInterface
         return $this->createFrom(array_map($callback, $this->elements));
     }
 
-    public function test(){
-        return $this->elements;
-    }
-
     /**
      * @throws Exception
      */
+
+    // Tính trung bình
     public function avg($value): float
     {
         if(is_numeric($this->elements[0]->$value)){
@@ -98,6 +96,8 @@ class Collection1 implements CollectionInterface
     /**
      * @throws Exception
      */
+
+    // Sắp xếp
     public function sortBy($key, $value){
         $value = strtolower($value);
         $items = $this->elements;

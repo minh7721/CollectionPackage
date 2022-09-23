@@ -2,37 +2,56 @@
 require_once __DIR__."/vendor/autoload.php";
 
 use MinhHN\Collection\Data1;
-$array = [
-    ['name' => 'Nguyễn Gia Hào','age' => '23', 'email' => 'giahao9899@gmail.com', 'phone' => '01283180231'],
-    ['name' => 'VNP Group','age' => '15', 'email' => 'vnp@gmail.com', 'phone' => '01283180231'],
-    ['name' => 'MinhHN','age' => '21', 'email' => 'nhatminh7721@gmail.com', 'phone' => '0943199776'],
-    ['name' => 'Phong','age' => '19', 'email' => 'phong@gmail.com', 'phone' => '0348203434'],
-    ['name' => 'Hưng','age' => '21', 'email' => 'hung@gmail.com', 'phone' => '04394802384'],
-    ['name' => 'Đăng','age' => '20', 'email' => 'dang@gmail.com', 'phone' => '10230121'],
-    ['name' => 'Chiến','age' => '22', 'email' => 'chien@gmail.com', 'phone' => '34230429834'],
+use MinhHN\Collection\QueryBuilder\QueryBuilder;
+use MinhHN\Collection\QueryBuilder\Connection;
+
+
+// Config database
+$database =  [
+    'driver' => 'mysql',
+    'host' => 'localhost',
+    'dbname' => 'question',
+    'username' => 'root',
+    'password' => 'password',
+    'charset' => 'utf8',
 ];
 
-$arr = [1,2,3,4,6,3,2,1];
+$conn = Connection::make($database);
+$query = new QueryBuilder($conn);
 
-$data = new Data1();
-$collection = $data::collection($array);
+// Lấy ra tất cả giá trị trong bảng (Truyền tên bảng vào select)
+$array = $query->select('question')->all();
+
+
+// Khởi tạo collection
+$collection = Data1::collection($array);
+
+// Trả về tất cả giá trị của mảng
 //print_r($collection->all());
 //echo "\n\n";
-//print_r($collection->avg('age'));
-//echo "\n\n";
-//print_r($collection->pluck('name'));
-//echo "\n\n";
-//print_r($collection->sortBy('age','asc'));
 
-//echo "Tuoi ban dau: ";
-//foreach ($collection->all() as $dt){
-//    print_r($dt->age);
-//    echo " ";
-//}
-//
-//echo "\n";
-//echo "Tuoi luc sau: ";
-//$collection->filter(function ($item){
-//     print_r(($item->age)*2);
-//     echo " ";
+// Tính trung bình
+//print_r($col/lection->avg('id'));
+//echo "\n\n";
+
+// In ra tất cả giá trị của 1 cột
+//print_r($collection->pluck('content'));
+//echo "\n\n";
+
+
+// Trả về số gấp đôi số cũ
+//$newAge = $collection->map(function ($item){
+//     return ($item->id)*2;
 //});
+//print_r($newAge);
+
+
+// Tra ve so chan
+//$tuoiChan = $collection->filter(function ($var){
+//         return !($var->id & 1);
+//});
+//print_r($tuoiChan);
+
+// Sap xep giam dan
+//print_r($collection->sortBy('id', 'desc'));
+
